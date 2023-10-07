@@ -16,13 +16,13 @@ rosa logs install -c <cluster_name> --watch
 
 ```
 ### Cluster Admin Login
-Obtain the OpenShift console URL.
+Obtain the OpenShift API endpoint.
 ```
 rosa describe cluster -c <cluster_name>
 -or-
-rosa describe cluster -c <cluster_name> -o json | jq .console
+rosa describe cluster -c <cluster_name> -o json | jq -r .api.url
 ```
-Login to the cluster using the URL obtained above
+Login to the cluster using the URL obtained above. 
 ```
 oc login <url> --username <admin_username> --password <admin_password> --insecure-skip-tls-verify=true
 ```
