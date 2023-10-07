@@ -3,7 +3,6 @@
 # +----------------------------+
 # | prod.auto.tfvars Variables |
 # +----------------------------+
-
 cluster_name = "bol"
 openshift_version = "4.13.13"         
 
@@ -11,7 +10,6 @@ openshift_version = "4.13.13"
 # +------------------------------+
 # | TF Cloud Workspace Variables |
 # +------------------------------+
-
 #account_role_prefix = "bol"
 #operator_role_prefix = "bol"
 #admin_username = "gsb-admin"
