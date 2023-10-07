@@ -26,7 +26,7 @@ Login to the cluster using the URL obtained above.
 ```
 oc login <url> --username <admin_username> --password <admin_password> --insecure-skip-tls-verify=true
 ```
-Obtain the console URL.
+Use the following to obtain the console URL.
 ```
 rosa describe cluster -c bol -o json | jq -r .console.url
 ```
