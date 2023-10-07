@@ -11,6 +11,10 @@ terraform {
   }
 }
 
+provider "aws" {
+  
+}
+
 provider "rhcs" {
   token = var.token
   url   = var.url
