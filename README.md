@@ -29,7 +29,7 @@ oc login $URL --username <admin_username> --password <admin_password> --insecure
 ```
 Use the following to obtain the console URL.
 ```
-rosa describe cluster -c bol -o json | jq -r .console.url
+rosa describe cluster -c <cluster_name> -o json | jq -r .console.url
 ```
 
 ### Upgrading a ROSA Cluster
