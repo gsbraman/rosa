@@ -1,75 +1,34 @@
-## Source Procedure
-https://github.com/terraform-redhat/terraform-provider-rhcs/tree/main/examples/create_rosa_sts_cluster/classic_sts/cluster
-https://docs.aws.amazon.com/ROSA/latest/userguide/getting-started-sts-auto.html
+## Deploy a ROSA Cluster Via VCS Driven Workflow
+In this deployment model, the Terraform configuration for deploying ROSA clusters are stored in a private GitHub repository.
 
-
-### Set Vars
-Get Token From:
-https://console.redhat.com/openshift/token
+### Configure the ROSA OpenShift Version
+Update the `prod.auto.tfvars` file with the desired OpenShift version. Available versions can be found using the following command.
 ```
-export TF_VAR_token=xxx
-```
-```
-export TF_VAR_url=https://api.openshift.com
-```
-```
-export TF_VAR_operator_role_prefix=xxx
-```
-```
-export TF_VAR_account_role_prefix=xxx
-```
-```
-export TF_VAR_cluster_name=xxx
-```
-
-
-### Optional Vars
-```
-export TF_VAR_openshift_version=<choose_openshift_version>
-export TF_VAR_tags=...
-```
-
-### Deploy Cluster
-```
-terraform init
-terraform plan -var-file="prod.tfvars"
-terraform apply -var-file="prod.tfvars"
-rosa logs install -c xxx --watch
-```
-```
+rosa login
 rosa list versions
+```
+After updating the file, push the changes to GitHub. This will trigger a new run in Terraform Cloud
+### Terraform Run Monitoring
+After approving the run, you can monitor the installation log in the TF Cloud UI and using the following commands.
+```
 rosa list clusters
-rosa logs install -c xxx --watch
-rosa create admin --cluster=ocp-test
-rosa delete admin --cluster=ocp-test
-rosa describe cluster -c <CLUSTER_NAME>
-rosa describe cluster -c <CLUSTER_NAME> | grep Console
+rosa logs install -c <cluster_name> --watch
 
 ```
-### Delete Cluster
+### Cluster Admin Login
+Obtain the OpenShift console URL.
 ```
-terraform destroy
-terraform destroy -var-file="prod.tfvars" -auto-approve
+rosa describe cluster -c <cluster_name>
+-or-
+rosa describe cluster -c <cluster_name> -o json | jq .console
+```
+Login to the cluster using the URL obtained above
+```
+oc login <url> --username <admin_username> --password <admin_password> --insecure-skip-tls-verify=true
 ```
 
-#### Ignore Changes
-https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#ignore_changes
-
-#### Dependencies
-https://developer.hashicorp.com/terraform/tutorials/configuration-language/dependencies
-
-Data sources thus inherently manage the dependencies for creating dynamic resources dependent on the existence of the data.
+### Uninstall a ROSA Cluster Via VCS Driven Workflow
+Comment out resources in `main.tf` and push the changes to GitHub. This will trigger a new run in Terraform Enterprise. After approving the run, you can monitor the uninstall in the TF Cloud UI and using the following command.
 ```
-aws sts get-caller-identity --query "Account" --output text
-```
-```
-terraform plan # No changes. Your infrastructure matches the configuration.
-rosa list clusters
-rosa list users --cluster=ocp-test
-rosa create admin --cluster=ocp-test
-```
-### Cleanup
-```
-terraform destroy -var-file="prod.tfvars"
-rosa logs uninstall -c xxx --watch
+rosa logs uninstall -c <cluster_name> --watch
 ```
