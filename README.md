@@ -24,7 +24,8 @@ rosa describe cluster -c <cluster_name> -o json | jq -r .api.url
 ```
 Login to the cluster using the URL obtained above. 
 ```
-oc login <url> --username <admin_username> --password <admin_password> --insecure-skip-tls-verify=true
+URL=`rosa describe cluster -c bol -o json | jq -r .api.url`
+oc login $URL --username <admin_username> --password <admin_password> --insecure-skip-tls-verify=true
 ```
 Use the following to obtain the console URL.
 ```
