@@ -2,8 +2,11 @@
 In this deployment model, the Terraform configuration for deploying ROSA clusters are stored in a private GitHub repository.
 
 ### Configure the ROSA OpenShift Version
+>**Note**: Obtain your OpenShift Cluster Manager API Token token from the Red Hat [portal](https://console.redhat.com/openshift/token)
+
 Update the `prod.auto.tfvars` file with the desired OpenShift version. Available versions can be found using the following:
 ```
+rosa login --token <token>
 rosa login
 rosa list versions | head
 ```
@@ -40,10 +43,20 @@ rosa describe cluster -c <cluster_name> -o json | jq .scheduledUpgrade
 rosa describe cluster -c <cluster_name> -o json | jq .version
 rosa describe cluster -c <cluster_name> -o json | jq .state
 ```
+Using the `ocm` [command line tool](https://console.redhat.com/openshift/downloads) to monitor ROSA clusters
+
+```
+ocm login --token="<token>"
+ocm whoami
+ocm list clusters --managed
+ocm describe cluster <cluster_name>
+ocm logout
+```
 
 ### Uninstall the ROSA Cluster Via VCS Driven Workflow
 Comment out resources in `main.tf` and push the changes to GitHub. This will trigger a new run in Terraform Cloud. After approving the run, you can monitor the uninstall in the TF Cloud UI and using the following:
 ```
 rosa describe cluster -c <cluster_name> -o json | jq .state
 rosa logs uninstall -c <cluster_name> --watch
+rosa logout
 ```
