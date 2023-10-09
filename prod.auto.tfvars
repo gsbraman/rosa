@@ -10,8 +10,8 @@ openshift_version = "4.13.10"
 # +------------------------------+
 # | TF Cloud Workspace Variables |
 # +------------------------------+
-#account_role_prefix = "bol"
-#operator_role_prefix = "bol"
-#admin_username = "gsb-admin"
-#admin_password = "Cluster-admin-password-123"
+#account_role_prefix = "xxx"
+#operator_role_prefix = "xxx"
+#admin_username = "xxx"
+#admin_password = "xxx"
 #token = xxx
