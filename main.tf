@@ -5,9 +5,17 @@ terraform {
       version = ">= 4.20.0"
     }
     rhcs = {
-      version = ">= 1.1.0"
       source  = "terraform-redhat/rhcs"
+      version = ">= 1.1.0"      
     }
+    # helm = {
+    #   source = "hashicorp/helm"
+    #   version = "~> 2.11"
+    # }
+    # kubernetes = {
+    #   source = "hashicorp/kubernetes"
+    #   version = "2.23.0"
+    # }
   }
 }
 

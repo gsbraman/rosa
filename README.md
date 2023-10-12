@@ -60,3 +60,14 @@ rosa describe cluster -c <cluster_name> -o json | jq .state
 rosa logs uninstall -c <cluster_name> --watch
 rosa logout
 ```
+### Resources:
+
+* Red Hat Cloud Services [terraform provider](https://github.com/terraform-redhat/terraform-provider-rhcs/tree/main) github page
+
+* ROSA STST cluster creation [example](https://github.com/terraform-redhat/terraform-provider-rhcs/blob/main/examples/create_rosa_sts_cluster/classic_sts/cluster/main.tf)
+
+* Terraform [rosa-sts](https://registry.terraform.io/modules/terraform-redhat/rosa-sts/aws/latest) provider
+
+* Terraform [helm](https://registry.terraform.io/providers/hashicorp/helm/latest) provider
+
+* Terraform [kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest) provider
