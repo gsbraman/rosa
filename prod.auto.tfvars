@@ -4,7 +4,7 @@
 # | prod.auto.tfvars Variables |
 # +----------------------------+
 cluster_name = "bol"
-openshift_version = "4.13.13"         
+openshift_version = "4.13.12"         
 
 
 # +------------------------------+
