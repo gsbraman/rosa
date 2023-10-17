@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: swagger-demo
   annotations:
-    argocd.argoproj.io/sync-wave: "6" # (6)
+    #argocd.argoproj.io/sync-wave: "6" # (6)
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -14,7 +14,7 @@ metadata:
   labels:
     appgrp: default  
   annotations:
-    argocd.argoproj.io/sync-wave: "7" # (7)  
+    #argocd.argoproj.io/sync-wave: "7" # (7)  
 spec:
   clusterResourceWhitelist:
     - group: '*'
@@ -33,7 +33,7 @@ metadata:
   labels:
     appgrp: stp
   annotations:
-    argocd.argoproj.io/sync-wave: "8" # (8)  
+    #argocd.argoproj.io/sync-wave: "8" # (8)  
 spec:
   destinations:
     - namespace: swagger-demo
@@ -49,7 +49,7 @@ metadata:
   labels:
     appgrp: stp
   annotations:
-    argocd.argoproj.io/sync-wave: "9" # (9)
+    #argocd.argoproj.io/sync-wave: "9" # (9)
 spec:
   project: stp
   source:
