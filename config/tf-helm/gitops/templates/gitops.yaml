@@ -20,14 +20,14 @@ metadata:
 #   kind: ClusterRole
 #   name: cluster-admin
 # ---
-# apiVersion: operators.coreos.com/v1alpha2
-# kind: OperatorGroup
-# metadata:
-#   name: gitops-og
-#   namespace: openshift-gitops
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "3" # (3)    
-# spec: {}
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+metadata:
+  name: gitops-og
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "3" # (3)    
+spec: {}
 # ---
 # apiVersion: operators.coreos.com/v1alpha1
 # kind: Subscription
