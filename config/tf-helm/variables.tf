@@ -14,7 +14,7 @@ variable "ocp_pwd" {
   type = string  
 }
 
-variable "token" {
-  type = string
-  default = "unset"
-}
+# variable "token" {
+#   type = string
+#   default = "unset"
+# }
