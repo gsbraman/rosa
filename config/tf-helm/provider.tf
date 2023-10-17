@@ -17,7 +17,7 @@ terraform {
 
 provider "helm" {
  kubernetes {
-   host     = var.ocp_api_host
+   host  = var.ocp_api_host
    token = data.shell_script.token.output["ocp_token"]
    insecure = true   
  }
