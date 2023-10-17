@@ -1,21 +1,17 @@
 variable "ocp_api_host" {
-  type = string
-  default = ""
+  type = string  
 }
 
 variable "ocp_oauth_host" {
-  type = string
-  default = ""
+  type = string  
 }
 
 variable "ocp_user" {
-  type = string
-  default = ""
+  type = string  
 }
 
 variable "ocp_pwd" {
-  type = string
-  default = ""
+  type = string  
 }
 
 variable "token" {
