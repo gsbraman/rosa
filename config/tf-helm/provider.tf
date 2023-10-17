@@ -15,16 +15,11 @@ terraform {
   }
 }
 
-# provider "kubernetes" {
-#   config_path = "~/.kube/config"
-# }
-
 provider "helm" {
  kubernetes {
    host     = var.ocp_api_host
    token = data.shell_script.token.output["ocp_token"]
-   insecure = true
-   #config_path = "~/.kube/config"
+   insecure = true   
  }
 }
 
