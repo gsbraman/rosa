@@ -23,7 +23,7 @@ resource "helm_release" "gitops" {
   reset_values     = true
 }
 
-resource "helm_release" "gitops" {
+resource "helm_release" "gitops-operands" {
   name        = "gitops-operands"
   chart       = "gitops-operands"
   repository  = "."
