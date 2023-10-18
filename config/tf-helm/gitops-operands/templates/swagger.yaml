@@ -4,26 +4,7 @@ kind: Namespace
 metadata:
   name: swagger-demo
   labels:
-    argocd.argoproj.io/managed-by: ocp-gitops 
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: AppProject
-# metadata:  
-#   name: default
-#   namespace: ocp-gitops
-#   labels:
-#     appgrp: default  
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "7" # (7)  
-# spec:
-#   clusterResourceWhitelist:
-#     - group: '*'
-#       kind: '*'
-#   destinations:
-#     - namespace: '*'
-#       server: '*'
-#   sourceRepos:
-#     - '*'
+    argocd.argoproj.io/managed-by: ocp-gitops
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
