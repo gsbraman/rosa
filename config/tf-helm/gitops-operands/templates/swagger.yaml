@@ -22,21 +22,20 @@ metadata:
 #       server: '*'
 #   sourceRepos:
 #     - '*'
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: AppProject
-# metadata:  
-#   name: apps
-#   namespace: ocp-gitops
-#   labels:
-#     appgrp: stp  
-# spec:
-#   destinations:
-#     - namespace: swagger-demo
-#       server: https://api.bol.54gi.p1.openshiftapps.com:6443
-#       #server: 'https://kubernetes.default.svc'
-#   sourceRepos:
-#     - 'https://gsbraman.github.io/stp/'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:  
+  name: demo-apps
+  namespace: ocp-gitops
+  labels:
+    appgrp: demo-apps  
+spec:
+  destinations:
+    - namespace: swagger-demo      
+      server: 'https://kubernetes.default.svc'
+  sourceRepos:
+    - 'https://gsbraman.github.io/stp/'
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -44,9 +43,9 @@ metadata:
   name: swagger
   namespace: ocp-gitops
   labels:
-    appgrp: stp  
+    appgrp: demo-apps  
 spec:
-  project: stp
+  project: demo-apps
   source:
     repoURL: https://gsbraman.github.io/stp/    
     chart: swagger
