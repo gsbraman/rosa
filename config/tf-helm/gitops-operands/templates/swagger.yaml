@@ -56,9 +56,8 @@ spec:
       values: |        
         containerLimitsCpu: "400m"
         containerLimitsMemory: "300Mi"       
-  destination:
-    server: https://api.bol.54gi.p1.openshiftapps.com:6443
-    #server: https://kubernetes.default.svc
+  destination:    
+    server: https://kubernetes.default.svc
     namespace: swagger-demo
   syncPolicy:
     automated:
