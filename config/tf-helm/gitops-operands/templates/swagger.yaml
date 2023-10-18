@@ -57,7 +57,7 @@ spec:
         containerLimitsCpu: "400m"
         containerLimitsMemory: "300Mi"       
   destination:
-    server: server: https://api.bol.54gi.p1.openshiftapps.com:6443
+    server: https://api.bol.54gi.p1.openshiftapps.com:6443
     #server: https://kubernetes.default.svc
     namespace: swagger-demo
   syncPolicy:
