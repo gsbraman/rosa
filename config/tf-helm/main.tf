@@ -22,3 +22,14 @@ resource "helm_release" "gitops" {
   wait             = true
   reset_values     = true
 }
+
+resource "helm_release" "gitops" {
+  name        = "gitops-operands"
+  chart       = "gitops-operands"
+  repository  = "."
+  namespace   = "helm-gitops-operands"
+  max_history = 3
+  create_namespace = true
+  wait             = true
+  reset_values     = true
+}
