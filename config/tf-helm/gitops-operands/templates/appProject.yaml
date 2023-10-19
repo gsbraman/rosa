@@ -3,6 +3,8 @@ kind: AppProject
 metadata:
   name: stp
   namespace: ocp-gitops
+  labels:
+    appgrp: stp-apps
 spec:
   clusterResourceWhitelist:
     - group: '*'
