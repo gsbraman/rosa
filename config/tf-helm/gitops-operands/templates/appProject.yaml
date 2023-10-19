@@ -1,16 +1,16 @@
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: stp
-  namespace: ocp-gitops
-  labels:
-    appgrp: stp-apps
-spec:
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-  destinations:
-    - namespace: '*'
-      server: '*'
-  sourceRepos:
-    - '*'
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   name: stp
+#   namespace: ocp-gitops
+#   labels:
+#     appgrp: stp-apps
+# spec:
+#   clusterResourceWhitelist:
+#     - group: '*'
+#       kind: '*'
+#   destinations:
+#     - namespace: '*'
+#       server: '*'
+#   sourceRepos:
+#     - '*'
