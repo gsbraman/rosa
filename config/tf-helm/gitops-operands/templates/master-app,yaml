@@ -12,8 +12,8 @@ spec:
   destination:    
     server: https://kubernetes.default.svc  
   source:
-    #directory:
-      #recurse: true
+    directory:
+      recurse: true
     path: gitops/apps
     repoURL: https://github.com/gsbraman/stp
     targetRevision: HEAD
@@ -21,3 +21,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
