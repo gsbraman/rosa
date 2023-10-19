@@ -1,25 +1,25 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:  
-  name: master-app
-  namespace: ocp-gitops
-  labels:
-    appgrp: day2
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  project: default
-  destination:    
-    server: https://kubernetes.default.svc  
-  source:
-    directory:
-      recurse: true
-    path: gitops/apps
-    repoURL: https://github.com/gsbraman/stp
-    targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:  
+#   name: master-app
+#   namespace: ocp-gitops
+#   labels:
+#     appgrp: day2
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
+#   destination:    
+#     server: https://kubernetes.default.svc  
+#   source:
+#     directory:
+#       recurse: true
+#     path: gitops/apps
+#     repoURL: https://github.com/gsbraman/stp
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#     - CreateNamespace=true
