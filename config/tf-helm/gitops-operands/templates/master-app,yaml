@@ -2,15 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:  
   name: master-app
-  namespace: openshift-gitops
+  namespace: ocp-gitops
   labels:
     appgrp: day2
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:    
-    server: https://kubernetes.default.svc
   project: default
+  destination:    
+    server: https://kubernetes.default.svc  
   source:
     #directory:
       #recurse: true
