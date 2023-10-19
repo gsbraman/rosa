@@ -14,3 +14,17 @@
 #       server: '*'
 #   sourceRepos:
 #     - '*'
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:  
+  name: demo-apps
+  namespace: ocp-gitops
+  labels:
+    appgrp: demo-apps  
+spec:
+  destinations:
+    - namespace: swagger-demo      
+      server: 'https://kubernetes.default.svc'
+  sourceRepos:
+    - 'https://gsbraman.github.io/stp/'

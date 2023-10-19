@@ -4,7 +4,7 @@
 #   name: master-app
 #   namespace: ocp-gitops
 #   labels:
-#     appgrp: day2
+#     appgrp: demo-app
 #   finalizers:
 #   - resources-finalizer.argocd.argoproj.io
 # spec:
