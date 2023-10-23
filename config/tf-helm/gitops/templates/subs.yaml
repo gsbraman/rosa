@@ -16,12 +16,12 @@ spec:
   name: openshift-gitops-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  config:
-    env:
-      - name: DISABLE_DEFAULT_ARGOCD_INSTANCE
-        value: 'true'
-      - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
-        value: 'ocp-gitops'
+  # config:
+  #   env:
+  #     - name: DISABLE_DEFAULT_ARGOCD_INSTANCE
+  #       value: 'true'
+  #     - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+  #       value: 'ocp-gitops'
 ---
 apiVersion: operators.coreos.com/v1alpha2
 kind: OperatorGroup
