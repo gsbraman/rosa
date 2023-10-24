@@ -3,7 +3,7 @@
 # +----------------------------+
 # | prod.auto.tfvars Variables |
 # +----------------------------+
-cluster_name = "bol"
+cluster_name = "stp"
 openshift_version = "4.12.36"         
 
 
