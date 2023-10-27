@@ -48,10 +48,15 @@ variable "openshift_version" {
   default = ""
 }
 
+# variable "upgrade_acknowledgements_for" {
+#   description = "Requried for cluster upgades"
+#   type        = string
+#   default = ""
+# }
+
 variable "path" {
   description = "(Optional) The arn path for the account/operator roles as well as their policies."
   type        = string
-  default     = null
 }
 
 variable "admin_username" {
