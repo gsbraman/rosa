@@ -94,7 +94,8 @@ resource "rhcs_cluster_rosa_classic" "rosa_sts_cluster" {
   admin_credentials = {
      password = var.admin_password
      username = var.admin_username 
-  }  
+  }
+  upgrade_acknowledgements_for = 4.13  
 }
 
 resource "rhcs_cluster_wait" "rosa_cluster" {
