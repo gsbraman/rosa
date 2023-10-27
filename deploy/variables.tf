@@ -70,8 +70,8 @@ variable "AWS_SECRET_ACCESS_KEY" {
   type = string
 }
 
-# variable "upgrade_acknowledgements_for" {
-#   description = "Requried for cluster upgades"
-#   type        = string
-#   default = ""
-# }
+variable "upgrade_acknowledgements_for" {
+  description = "Requried for cluster upgades"
+  type        = string
+  default = ""
+}
