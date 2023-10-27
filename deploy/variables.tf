@@ -51,6 +51,7 @@ variable "openshift_version" {
 variable "path" {
   description = "(Optional) The arn path for the account/operator roles as well as their policies."
   type        = string
+  default = null
 }
 
 variable "admin_username" {
