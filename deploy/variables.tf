@@ -48,12 +48,6 @@ variable "openshift_version" {
   default = ""
 }
 
-# variable "upgrade_acknowledgements_for" {
-#   description = "Requried for cluster upgades"
-#   type        = string
-#   default = ""
-# }
-
 variable "path" {
   description = "(Optional) The arn path for the account/operator roles as well as their policies."
   type        = string
@@ -74,3 +68,9 @@ variable "AWS_ACCESS_KEY_ID" {
 variable "AWS_SECRET_ACCESS_KEY" {
   type = string
 }
+
+# variable "upgrade_acknowledgements_for" {
+#   description = "Requried for cluster upgades"
+#   type        = string
+#   default = ""
+# }
