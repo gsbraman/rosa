@@ -4,7 +4,7 @@
 # | prod.auto.tfvars Variables |
 # +----------------------------+
 cluster_name = "stp"
-openshift_version = "4.13.17"
+openshift_version = "4.13.15"
 upgrade_acknowledgements_for = "4.13"         
 
 
