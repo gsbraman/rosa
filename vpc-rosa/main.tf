@@ -45,6 +45,8 @@ module "create_account_roles" {
   tags                   = var.tags
 }
 
+
+
 # Sleep after creating account roles
 resource "time_sleep" "wait_12_seconds" {
   depends_on = [module.create_account_roles]
