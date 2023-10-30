@@ -3,7 +3,7 @@
 # admin_username = "xxx"
 # admin_password = "xxx"
 
-cluster_name = "gsb"
+cluster_name = "bol"
 openshift_version = "4.13.10"
 replicas = 3
 compute_machine_type ="m5.xlarge"
