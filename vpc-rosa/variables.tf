@@ -104,5 +104,5 @@ variable "upgrade_acknowledgements_for" {
 
 variable "autoscaling_enabled" {
   type = bool
-  default = ""
+  default = null
 }
