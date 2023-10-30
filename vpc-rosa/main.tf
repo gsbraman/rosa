@@ -11,10 +11,15 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = var.cloud_region  
+}
+
 provider "rhcs" {
   token = var.token
   url   = var.url
 }
+
 
 # Create account roles
 data "rhcs_policies" "all_policies" {}
