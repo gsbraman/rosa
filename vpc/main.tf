@@ -1,15 +1,19 @@
-# terraform {
-#   required_providers {
-#     aws = {
-#         source = "hashicorp/aws"
-#         version = "~> 4.20.0"
-#     }
-#   }
-# }
+terraform {
+  required_providers {
+    aws = {
+        source = "hashicorp/aws"
+        version = "~> 4.20.0"
+    }
+  }
+}
 
-# provider "aws" {
-#     region = var.aws_region
-#  }
+provider "aws" {
+    region = var.aws_region
+ }
+
+# +--------------------------------------------------------------+
+# | Comment out everyting below to destory the VPC and resources |
+# +--------------------------------------------------------------+ 
 
 # locals {
 #   availability_zones = ["${var.aws_region}a", "${var.aws_region}b", "${var.aws_region}c"]
