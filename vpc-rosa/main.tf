@@ -1,12 +1,14 @@
+## vpc-rosa file
 terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 4.20.0"
     }
+    # Version 1.4.0 released 10/19/23
     rhcs = {
-      version = ">= 1.1.0"
       source  = "terraform-redhat/rhcs"
+      version = ">= 1.1.0"      
     }
   }
 }
@@ -20,40 +22,10 @@ provider "rhcs" {
   url   = var.url
 }
 
+# +-----------------------------------------------------+
+# | Comment out everyting below to destory the cluster  |
+# +-----------------------------------------------------+
 
-# Create account roles
-data "rhcs_policies" "all_policies" {}
-
-data "rhcs_versions" "all" {}
-
-module "create_account_roles" {
-  source  = "terraform-redhat/rosa-sts/aws"
-  version = "0.0.15"
-
-  create_operator_roles = false
-  create_oidc_provider  = false
-  create_account_roles  = true
-
-  account_role_prefix    = var.account_role_prefix
-  ocm_environment        = var.ocm_environment
-  #rosa_openshift_version = var.rosa_openshift_version
-  rosa_openshift_version = regex("^[0-9]+\\.[0-9]+", var.openshift_version)
-  account_role_policies  = data.rhcs_policies.all_policies.account_role_policies
-  operator_role_policies = data.rhcs_policies.all_policies.operator_role_policies
-  all_versions           = data.rhcs_versions.all
-  path                   = var.path
-  tags                   = var.tags
-}
-
-
-
-# Sleep after creating account roles
-resource "time_sleep" "wait_12_seconds" {
-  depends_on = [module.create_account_roles]
-  create_duration = "12s"
-}
-
-# Create cluster
 locals {
   sts_roles = {
     role_arn         = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.account_role_prefix}-Installer-Role",
@@ -66,7 +38,40 @@ locals {
   }
 }
 
-data "aws_caller_identity" "current" {
+# Create account roles
+data "aws_caller_identity" "current" {}
+
+data "rhcs_policies" "all_policies" {}
+
+data "rhcs_versions" "all" {}
+
+
+module "create_account_roles" {
+  source  = "terraform-redhat/rosa-sts/aws"
+  version = "0.0.15"
+
+  create_operator_roles = false
+  create_oidc_provider  = false
+  create_account_roles  = true
+
+  account_role_prefix    = var.account_role_prefix
+  ocm_environment        = var.ocm_environment
+  rosa_openshift_version = regex("^[0-9]+\\.[0-9]+", var.openshift_version)
+  account_role_policies  = data.rhcs_policies.all_policies.account_role_policies
+  operator_role_policies = data.rhcs_policies.all_policies.operator_role_policies
+  all_versions           = data.rhcs_versions.all
+  path                   = var.path
+  tags                   = var.tags
+}
+
+#+------------------------------------------------------------+
+#| Added this resource to allow time for create_account_roles |
+#| to complete before cluster creation                        |
+#+------------------------------------------------------------+
+
+resource "time_sleep" "wait_12_seconds" {
+  depends_on = [module.create_account_roles]
+  create_duration = "12s"
 }
 
 resource "rhcs_cluster_rosa_classic" "rosa_sts_cluster" {
