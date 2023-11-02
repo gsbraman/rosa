@@ -6,8 +6,8 @@ metadata:
   #namespace: openshift-gitops
   labels:
     appgrp: demo-app
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  #finalizers:
+  #- resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:    
