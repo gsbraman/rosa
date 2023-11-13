@@ -5,7 +5,8 @@
 # +----------------------------+
 cluster_name = "stp"
 openshift_version = "4.13.13"
-upgrade_acknowledgements_for = "4.13"         
+upgrade_acknowledgements_for = "4.13"
+cloud_region = "us-east-2"         
 
 
 # +------------------------------+
