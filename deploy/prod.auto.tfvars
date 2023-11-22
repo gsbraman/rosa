@@ -4,7 +4,7 @@
 # | prod.auto.tfvars Variables |
 # +----------------------------+
 cluster_name = "jtb"
-openshift_version = "4.13.19"
+openshift_version = "4.13.21"
 upgrade_acknowledgements_for = "4.13"
 
 # +------------------------------+
