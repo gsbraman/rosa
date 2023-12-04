@@ -4,8 +4,8 @@
 # | prod.auto.tfvars Variables |
 # +----------------------------+
 cluster_name = "jtb"
-openshift_version = "4.13.22"
-upgrade_acknowledgements_for = "4.13"
+openshift_version = "4.14.1"
+upgrade_acknowledgements_for = "4.14"
 
 # +------------------------------+
 # | TF Cloud Workspace Variables |
