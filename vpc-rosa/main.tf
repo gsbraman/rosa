@@ -124,3 +124,5 @@ provider "rhcs" {
 #   operator_roles_properties   = data.rhcs_rosa_operator_roles.operator_roles.operator_iam_roles
 #   tags                        = var.tags
 # }
+
+
