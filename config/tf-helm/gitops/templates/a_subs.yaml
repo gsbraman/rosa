@@ -29,5 +29,8 @@ metadata:
   name: gitops-og
   #namespace: ocp-gitops
   namespace: openshift-gitops  
-spec: {}
+#spec: {}
+spec:
+  targetNamespaces:
+  - openshift-gitops
 ...
