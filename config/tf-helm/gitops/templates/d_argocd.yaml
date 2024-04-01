@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1beta1
 kind: ArgoCD
 metadata:
-  name: default
-  #name: ocp-gitops
+  #name: default
+  name: ocp-gitops
   #name: openshift-gitops
   #namespace: ocp-gitops
   namespace: openshift-gitops  
