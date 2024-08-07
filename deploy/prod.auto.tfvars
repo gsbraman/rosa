@@ -4,8 +4,8 @@
 # | prod.auto.tfvars Variables |
 # +----------------------------+
 cluster_name = "stp"
-openshift_version = "4.15.3" 
-upgrade_acknowledgements_for = "4.15"
+openshift_version = "4.16.4" 
+upgrade_acknowledgements_for = "4.16"
 
 # +------------------------------+
 # | TF Cloud Workspace Variables |
