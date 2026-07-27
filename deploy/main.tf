@@ -2,12 +2,12 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.20.0"
+      version = ">= 6.56.0"
     }
     # Version 1.4.0 released 10/19/23
     rhcs = {
       source  = "terraform-redhat/rhcs"
-      version = ">= 1.1.0"      
+      version = ">= 1.7.3"      
     }
     # helm = {
     #   source = "hashicorp/helm"
