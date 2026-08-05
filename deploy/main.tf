@@ -1,8 +1,9 @@
 terraform {
   required_providers {
+    # 8/5/2026 changed from ">=4.0" to "6.58.0"
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.0"
+      version = "6.58.0"
     }
     # Version 1.4.0 released 10/19/23 8/5/26 change to v1.7.7
     rhcs = {
