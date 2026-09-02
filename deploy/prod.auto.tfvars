@@ -3,8 +3,8 @@
 # +----------------------------+
 # | prod.auto.tfvars Variables |
 # +----------------------------+
-cluster_name = "gsb"
-openshift_version = "4.22.10" 
+cluster_name = "stp"
+openshift_version = "4.22.11" 
 upgrade_acknowledgements_for = "4.22"
 
 # +------------------------------+
